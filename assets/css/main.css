@@ -3402,7 +3402,7 @@ input, select, textarea {
 			#banner .logo .icon {
 				background-image: url("../../images/logo.png");
                 background-repeat: no-repeat;
-                background-size: cover;
+                background-size: contain;
                 padding: 0px;
                 margin: 0px;
                 width: 12%;
