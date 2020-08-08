@@ -3501,6 +3501,8 @@ input, select, textarea {
 
 					#banner .logo .icon {
 						font-size: 1.5em;
+                        width: 12%;
+                        height: 4em;
 					}
 
 				#banner h2 {
