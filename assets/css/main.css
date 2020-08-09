@@ -76,6 +76,10 @@ input, select, textarea {
 	appearance: none;
 }
 
+#mobile {
+    position: absolute;
+    visibility: hidden;
+}
 /* Basic */
 
 	@-ms-viewport {
@@ -91,6 +95,14 @@ input, select, textarea {
 		html, body {
 			min-width: 320px;
 		}
+
+        #mobile {
+            visibility: visible;
+        }
+        .webview {
+                visibility: hidden;
+                position: absolute;
+            }
 
 	}
 
@@ -155,6 +167,14 @@ input, select, textarea {
 			body, input, select, textarea {
 				font-size: 12pt;
 			}
+            #mobile {
+                position: static;
+                visibility: visible;
+            }
+            .webview {
+                visibility: hidden;
+                position: absolute;
+            }
 
 		}
 
@@ -164,6 +184,15 @@ input, select, textarea {
 				font-size: 12pt;
 			}
 
+        #mobile {
+            position: static;
+            visibility: visible;
+        }
+            .webview {
+                visibility: hidden;
+                position: absolute;
+            }
+
 		}
 
 		@media screen and (max-width: 480px) {
@@ -171,6 +200,15 @@ input, select, textarea {
 			body, input, select, textarea {
 				font-size: 12pt;
 			}
+
+        #mobile {
+            position: static;
+            visibility: visible;
+        }
+            .webview {
+                visibility: hidden;
+                position: absolute;
+            }
 
 		}
 
