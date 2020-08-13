@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload" ng-app="myApp" ng-controller="myCtrl">
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
@@ -49,24 +49,13 @@
 							</div>
 						</header>
 
-						<section id="one" class="wrapper spotlight style1">
+						<section class="wrapper spotlight style{{($index%6)+1}}" ng-class-even="'alt'" ng-repeat="x in records">
 								<div class="inner">
-									<a href="#" class="image"><img src="../images/achan.jpeg" alt="" /></a>
+									<a href="#" class="image"><img src="../images/vicars/{{x.photo}}" alt="" /></a>
 									<div class="content">
-										<h2 class="major">Rev. Shaji</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">2018 - </a>
-									</div>
-								</div>
-							</section>
-
-						<section id="two" class="wrapper alt spotlight style6">
-								<div class="inner">
-									<a href="#" class="image"><img src="../images/achan.jpeg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Rev. Shaji</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">2015 - 2018</a>
+										<h2 class="major">{{x.name}}</h2>
+										<p>{{x.description}}</p>
+										<a href="#" class="special">{{x.startYear}} - {{x.endYear}}</a>
 									</div>
 								</div>
 							</section>
@@ -91,6 +80,8 @@
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+            <script src="../js/vicar.js"></script>
 
 	</body>
 </html>
