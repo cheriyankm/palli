@@ -11,10 +11,11 @@ app.controller("myCtrl", function($scope, $http) {
                 var obj = {};
                 var currentline = lines[i].split(",");
                 for (var j = 0; j < headers.length; j++) {
-                    obj[headers[j]] = currentline[j];
+                    obj[headers[j].trim()] = currentline[j].trim();
                 }
                 result.push(obj);
             }
         $scope.records = result;
+        console.log($scope.records);
     });
 });
