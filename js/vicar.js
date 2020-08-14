@@ -1,68 +1,20 @@
 var app = angular.module("myApp", []);
-app.controller("myCtrl", function($scope) {
-  $scope.records = [
-      {
-          "name":"vicar1",
-          "description":"description1",
-          "startYear":"1990",
-          "endYear":"1993",
-          "photo":"achan.jpeg"
-      },
-      {
-          "name":"vicar2",
-          "description":"description2",
-          "startYear":"1993",
-          "endYear":"1996",
-          "photo":"vicar2.jpg"
-      },
-      {
-          "name":"vicar3",
-          "description":"description3",
-          "startYear":"1996",
-          "endYear":"1999",
-          "photo":"achan.jpeg"
-      },
-      {
-          "name":"vicar4",
-          "description":"description4",
-          "startYear":"1999",
-          "endYear":"2002",
-          "photo":"vicar2.jpg"
-      },
-      {
-          "name":"vicar5",
-          "description":"description5",
-          "startYear":"2002",
-          "endYear":"2005",
-          "photo":"achan.jpeg"
-      },
-      {
-          "name":"vicar6",
-          "description":"description1",
-          "startYear":"2005",
-          "endYear":"2008",
-          "photo":"vicar2.jpg"
-      },
-      {
-          "name":"vicar7",
-          "description":"description6",
-          "startYear":"2008",
-          "endYear":"2011",
-          "photo":"achan.jpeg"
-      },
-      {
-          "name":"vicar8",
-          "description":"description1",
-          "startYear":"2011",
-          "endYear":"2014",
-          "photo":"vicar2.jpg"
-      },
-      {
-          "name":"vicar9",
-          "description":"description6",
-          "startYear":"2014",
-          "endYear":"2017",
-          "photo":"achan.jpeg"
-      }
-  ]
+app.controller("myCtrl", function($scope, $http) {
+    $scope.records = [];
+    $http.get("https://dl.dropbox.com/s/6w4c7f69uthtrxq/vicar.csv?dl=0")
+        .then(function(response) {
+        $scope.csvRecord = response.data;
+        var lines = $scope.csvRecord.split("\n");
+            var result = [];
+            var headers = lines[0].split(",");
+            for (var i = 1; i < lines.length; i++) {
+                var obj = {};
+                var currentline = lines[i].split(",");
+                for (var j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = currentline[j];
+                }
+                result.push(obj);
+            }
+        $scope.records = result;
+    });
 });
