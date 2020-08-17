@@ -1,7 +1,6 @@
 var app = angular.module("myApp", []);
 app.controller("myCtrl", function($scope, $http) {
     $scope.records = [];
-    //$http.get("https://dl.dropbox.com/s/6w4c7f69uthtrxq/vicar.csv?dl=0")
     $http({
         method: 'GET',
         url: 'https://api.jsonbin.io/b/5f3973264d9399103616010b',
@@ -11,4 +10,8 @@ app.controller("myCtrl", function($scope, $http) {
     }).then(function(response) {
         $scope.records = response.data;
     });
+    
+    $scope.edit = function(x){
+        console.log(x);
+    }
 });
