@@ -51,13 +51,6 @@
                     <a href="#" class="close">Close</a>
                 </div>
             </nav>
-
-        <!-- Banner -->
-            <section id="banner">
-                <div class="inner">
-                    <h2>Admin Panel</h2>
-                </div>
-            </section>
         <!-- Wrapper -->
             <section id="wrapper">
 						<header>
@@ -71,38 +64,59 @@
 								<div class="inner">
 
 									<section>
-										<h3 class="major">Lists</h3>
-										<h4>Pagination</h4>
-										<ul class="pagination">
-											<li><span class="button small disabled">Prev</span></li>
-											<li><a href="#" class="page active">1</a></li>
-											<li><a href="#" class="page">2</a></li>
-											<li><a href="#" class="page">3</a></li>
-											<li><span>&hellip;</span></li>
-											<li><a href="#" class="page">8</a></li>
-											<li><a href="#" class="page">9</a></li>
-											<li><a href="#" class="page">10</a></li>
-											<li><a href="#" class="button small">Next</a></li>
-										</ul>
-									</section>
-
-									<section>
-										<h3 class="major">Table</h3>
-										<h4>Default</h4>
+										<h4 style="color:#F00 !important">{{errorMessage}}</h4>
+                                        
+                                        <form>
+                                            <div class="fields">
+                                                <div class="field">
+                                                    <label for="name">Vicar Name</label>
+                                                    <input type="text" name="name" id="name" ng-model="vicar.name" />
+                                                </div>
+                                                <div class="field">
+                                                    <label for="demo-category">Start Year</label>
+													<select name="demo-category" id="demo-category" ng-model="vicar.startYear">
+														<option value="{{x}}" ng-repeat="x in years">{{x}}</option>
+													</select>
+                                                </div>
+                                                <div class="field">
+                                                    <label for="demo-category">End Year</label>
+													<select name="demo-category" id="demo-category" ng-model="vicar.endYear">
+														<option value="-">-</option>
+														<option value="{{x}}" ng-repeat="x in years">{{x}}</option>
+													</select>
+                                                </div>
+                                                <div class="field">
+                                                    <label for="message">Description</label>
+                                                    <textarea name="message" id="message" rows="4" ng-model="vicar.description"></textarea>
+                                                </div>
+                                                <div class="field">
+                                                    <label for="message">photo name</label>
+                                                    <input type="text" name="photo" rows="4" ng-model="vicar.photo"/>
+                                                </div>
+                                            </div>
+                                            <ul class="actions">
+                                                <a class="button primary small" ng-click="add(vicar)">Add vicar to list</a>
+                                            </ul>
+                                        </form>
 										<div class="table-wrapper">
+										<h3 class="major">List of Vicars</h3>
 											<table>
 												<thead>
 													<tr>
+														<th></th>
 														<th>Name</th>
 														<th>Year of service</th>
-														<th>Action</th>
+														<th>description</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr ng-repeat="x in records">
+														<td><img src="../images/vicars/{{x.photo}}" alt="" /></td>
 														<td>{{x.name}}</td>
 														<td>{{x.startYear}} - {{x.endYear}}</td>
-														<td><a class="button primary small">Edit</a></td>
+														<td>{{x.description}}</td>
+														<td><a class="button primary small" ng-click="edit($index, x)">Edit</a></td>
+														<td><a class="button primary small" ng-click="delete($index, x)">Delete</a></td>
 													</tr>
 												</tbody>
 											</table>
