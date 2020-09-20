@@ -55,7 +55,7 @@
             <section id="wrapper">
 						<header>
 							<div class="inner">
-								<h2>Admin Panel</h2>
+								<h2 id="up">Admin Panel</h2>
 							</div>
 						</header>
 
@@ -115,7 +115,7 @@
 														<td>{{x.name}}</td>
 														<td>{{x.startYear}} - {{x.endYear}}</td>
 														<td>{{x.description}}</td>
-														<td><a class="button primary small" ng-click="edit($index, x)">Edit</a></td>
+														<td><a href="#up" class="button primary small" ng-click="edit($index, x)">Edit</a></td>
 														<td><a class="button primary small" ng-click="delete($index, x)">Delete</a></td>
 													</tr>
 												</tbody>
