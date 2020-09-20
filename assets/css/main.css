@@ -4204,3 +4204,17 @@ td img {
     padding: 5px;
     width: 50px;
 }
+
+
+#overlay {
+    width: 100%;
+    height: 100%;
+    display:inline-grid;
+    background: rgba(0, 0, 0, 0);
+    text-align: center;
+}
+#overlay i {
+   display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+}

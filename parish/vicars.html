@@ -48,8 +48,7 @@
 								<p>Photos and details of Our vicars served in SMCN</p>
 							</div>
 						</header>
-
-						<section class="wrapper spotlight style{{($index%6)+1}}" ng-class-even="'alt'" ng-repeat="x in records">
+						<section class="wrapper spotlight style{{($index%6)+1}}" ng-class-even="'alt'" ng-repeat="x in records | reverse">
 								<div class="inner">
 									<a href="#" class="image"><img src="../images/vicars/{{x.photo}}" alt="" /></a>
 									<div class="content">
